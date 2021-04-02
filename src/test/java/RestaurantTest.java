@@ -75,7 +75,7 @@ public class RestaurantTest {
     @Test
     public void when_item_is_selected_Total_Price_Should_NOT_be_Zero(){
 
-        List<String> ItemSelected = new ArrayList<String>();
+        List<String> ItemSelected = new ArrayList<String>(); // Failing Test case
         int i=0,Price=0;
         ItemSelected.add(0,"Sweet corn soup");
         ItemSelected.add(1, "Vegetable lasagne");
