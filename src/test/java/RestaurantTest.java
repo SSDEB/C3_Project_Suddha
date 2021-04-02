@@ -1,15 +1,12 @@
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.awt.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -82,6 +79,22 @@ public class RestaurantTest {
 
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //<<<<<<<<<<<<<<<<<<<<TDD Test case for Selected Item total PART 2>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+@Test
+public void when_item_is_selected_Total_Price_Should_NOT_be_Zero(){
+
+    List<String> ItemSelected = new ArrayList<String>(); // Failing Test case
+    int Price=0;
+    ItemSelected.add(0,"Sweet corn soup");
+    ItemSelected.add(1, "Vegetable lasagne");
+    Price= restaurant.ReturnPrice(ItemSelected);
+    assertNotEquals(0,Price);
+
+}
+
+
+//<<<<<<<<<<<<<<<<<<<<TDD Test case for Selected Item total PART 3>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
 

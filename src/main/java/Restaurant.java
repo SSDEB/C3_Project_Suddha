@@ -3,6 +3,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Restaurant {
     private String name;
     private String location;
@@ -65,6 +66,11 @@ public class Restaurant {
     }
 
 
+    public   int ReturnPrice(List<String> itemSelected) { //Return Price of Selected Item  Part 3 Solutiom (Method)
+    int price=0;
+    return price;
+
+}
 
 
 }
