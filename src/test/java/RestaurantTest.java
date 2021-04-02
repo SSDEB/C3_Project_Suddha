@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -15,6 +16,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 public class RestaurantTest {
     Restaurant restaurant;
+    @Mock
+    Restaurant MockRestuarant;
+
+    //REFACTORING
     public RestaurantTest(){
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
@@ -28,13 +33,22 @@ public class RestaurantTest {
 
     @Test
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time(){
-        assertTrue(this.restaurant.isRestaurantOpen());
+
+        LocalTime Currenttime = LocalTime.parse("20:00:00");
+        MockRestuarant = Mockito.mock(Restaurant.class);
+        Mockito.when(MockRestuarant.getCurrentTime()).thenReturn(Currenttime);
+        assertTrue(MockRestuarant.isRestaurantOpen());
 
     }
 
     @Test
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
-        assertFalse(this.restaurant.isRestaurantOpen());
+
+
+        LocalTime Currenttime = LocalTime.parse("12:00:00");
+        MockRestuarant = Mockito.mock(Restaurant.class);
+        Mockito.when(MockRestuarant.getCurrentTime()).thenReturn(Currenttime);
+        assertFalse(MockRestuarant.isRestaurantOpen());
 
     }
 
@@ -70,21 +84,6 @@ public class RestaurantTest {
 
 
 
-    //<<<<<<<<<<<<<<<<<<<<TDD Test case for Selected Item total PART 2>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    @Test
-    public void when_item_is_selected_Total_Price_Should_NOT_be_Zero(){
-
-        List<String> ItemSelected = new ArrayList<String>(); // Failing Test case
-        int i=0,Price=0;
-        ItemSelected.add(0,"Sweet corn soup");
-        ItemSelected.add(1, "Vegetable lasagne");
-        Price= restaurant.ReturnPrice(ItemSelected);
-        assertNotEquals(0,Price);
-
-    }
-
-
-    //<<<<<<<<<<<<<<<<<<<<TDD Test case for Selected Item total PART 3>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 }

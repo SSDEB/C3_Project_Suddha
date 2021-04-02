@@ -65,15 +65,6 @@ public class Restaurant {
     }
 
 
-    public   int ReturnPrice(List<String> itemSelected) { //Return Price of Selected Item  Part 3 Solutiom (Method)
-        int price=0 ,i=0;
-        while (i<itemSelected.size()){
-            Item itemSelect = findItemByName(itemSelected.get(i));
-            price = price + itemSelect.getPrice();
-            i++;
-        }
-        return price;
 
-    }
 
 }
