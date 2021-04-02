@@ -4,12 +4,16 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.awt.*;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class RestaurantTest {
+public class RestaurantTest {
     Restaurant restaurant;
     public RestaurantTest(){
         LocalTime openingTime = LocalTime.parse("10:30:00");
@@ -33,6 +37,8 @@ class RestaurantTest {
         assertFalse(this.restaurant.isRestaurantOpen());
 
     }
+
+
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -59,5 +65,26 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
     }
+
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+    //<<<<<<<<<<<<<<<<<<<<TDD Test case for Selected Item total PART 2>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+    public void when_item_is_selected_Total_Price_Should_NOT_be_Zero(){
+
+        List<String> ItemSelected = new ArrayList<String>();
+        int i=0,Price=0;
+        ItemSelected.add(0,"Sweet corn soup");
+        ItemSelected.add(1, "Vegetable lasagne");
+        Price= restaurant.ReturnPrice(ItemSelected);
+        assertNotEquals(0,Price);
+
+    }
+
+
+    //<<<<<<<<<<<<<<<<<<<<TDD Test case for Selected Item total PART 3>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 }
